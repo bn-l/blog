@@ -1,0 +1,4 @@
+baseURL = 'https://bn-l.com'
+languageCode = 'en-us'
+title = "Ben's notes"
+theme = 'hugo-paper'
