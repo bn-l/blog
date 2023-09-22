@@ -21,10 +21,12 @@ enableEmoji = true
 [markup.goldmark]
   [markup.goldmark.renderer]
     unsafe = true
+  [markup.goldmark.extensions.typographer]
+    enDash = '&mdash;'
 [markup.highlight]
-  noClasses = true
   style = 'catppuccin-frappe'
   tabWidth = 2
+
 
 
 [params]

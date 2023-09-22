@@ -42,15 +42,17 @@ This repo started at **commit a** (where HEAD and <abbr title="AKA master">main<
 
 ### Remotes:
 
-- Named git urls
+- Git urls with names
 - Naming allows quick reference. Can simply use an identifier instead of typing: http:… etc
-- Literally listed in .git/config like this (git's config file is [basically](https://stackoverflow.com/a/68461700/20603697) INI format):
-  ```	ini
-  [remote "origin"]
-      url = https://github.com/bn-l/bn-l-site-blog.git
-      fetch = +refs/heads/*:refs/remotes/origin/*
-  ```
+  - Literally listed in .git/config like this (git's config file is [basically](https://stackoverflow.com/a/68461700/20603697) INI format):
+  
+```	ini
+[remote "origin"]
+    url = https://github.com/bn-l/bn-l-site-blog.git
+    fetch = +refs/heads/*:refs/remotes/origin/*
+```
 
+  
 ### HEAD
 
 Like a [tape head](http://hyperphysics.phy-astr.gsu.edu/hbase/Audio/tape2.html), this is where writes happen.
@@ -61,35 +63,40 @@ Like a [tape head](http://hyperphysics.phy-astr.gsu.edu/hbase/Audio/tape2.html),
 - When HEAD is pointing to a branch (e.g. "main") it means a file called HEAD contains single line like "ref: refs/heads/main". When pointing to a commit it will contain the SHA1 of the commit.
 - **Committing to a branch**:
   - Here HEAD is pointing to a branch called main which is pointing to commit a:
-   ``` mermaid
-   flowchart TB
-   	HEAD-.->main-.->1[commit a]
-   	style HEAD fill:#feff9c
-      style main fill:#feff9c
-   ```
-  - The result of a commit called "commit b":
-   ```mermaid
-   flowchart TB
-   	HEAD-.->main-.->1[commit b]
-   	1[commit b]-->2[commit a]
-   	style HEAD fill:#feff9c
-      style main fill:#feff9c
-   ```
+  
+``` mermaid
+flowchart TB
+HEAD-.->main-.->1[commit a]
+style HEAD fill:#feff9c
+    style main fill:#feff9c
+```
+- The result of a commit called "commit b":
+  
+```mermaid
+    flowchart TB
+    HEAD-.->main-.->1[commit b]
+    1[commit b]-->2[commit a]
+    style HEAD fill:#feff9c
+        style main fill:#feff9c
+```
+
 - #### Detached head mode:
   - When pointing to (AKA referencing) a **commit** (vs a ref) the HEAD is considered "detached" (…from a branch with a named reference—like main or dev)
   - If you commit again the only reference to this offshoot will be the HEAD. Moving to another commit will leave the offshoot without a reference and it will be subject to <abbr title="Garbage Collection">GC</abbr>.
   - **Allows for wild experimentation**: Checkout a commit. Do whatever you like. Checkout back to a named branch and forget it ever happened.
+
 - #### Orphan branches:
   - Allows for new branches without the commit history (i.e. one new node with all the file changes but none of the commit messages)
   - Good for creating a branch that doesn't disclose the previous commit messages when pushing to a public repo:
-   ```shell
-   git checkout --orphan docs # (docs is the name of the branch)
-   git commit -m "new docs branch"
-   git push origin docs
-   ```
+  
+```shell
+    git checkout --orphan docs # (docs is the name of the branch)
+    git commit -m "new docs branch"
+    git push origin docs
+```
 
 ### Merge
-- When merging two commits git will try to do it automatically. If there are conflicting changes it will then pause in the "unmerged" state (see [git status command)](/posts/git-commands).
+- When merging two commits git will try to do it automatically. If there are conflicting changes it will then pause in the "unmerged" state see [git status command](/posts/git-commands).
 - White space characters can cause unwanted merge conflicts (e.g. the document is reformatted from tabs to spaces). Options exist to
   ignore white space.
 - Merge stages (these are recorded by git):
@@ -100,10 +107,11 @@ Like a [tape head](http://hyperphysics.phy-astr.gsu.edu/hbase/Audio/tape2.html),
 
 - **Conflicts**:
   - This command will show conflicts that are pausing the merge (adding *-p* gives the detailed diffs):
-    ```shell
-      git log --oneline --left-right --merge
-    ```
-  - Calling "--continue" with the command that caused a merge conflict will try and continue the merge
+  
+```shell
+    git log --oneline --left-right --merge
+```
+  - Calling "continue" with the command that caused a merge conflict will try and continue the merge
 
 ### Rebasing
 
@@ -119,7 +127,7 @@ Like a [tape head](http://hyperphysics.phy-astr.gsu.edu/hbase/Audio/tape2.html),
 ### Pull
 
 - Like fetch in that it downloads remote content but then immediately does a merge with local files
-- Can be called with "--rebase"  option and will rebase instead of merging
+- Can be called with "rebase"  option and will rebase instead of merging
 
 ### Push
 

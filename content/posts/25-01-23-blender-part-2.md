@@ -5,6 +5,8 @@ draft: false
 date: 2023-01-25
 page_type: post
 slug: "beginner-blender-tutorial-sculpture-part-2"
+series: 
+    - blender-tutes
 ---
 
 <style>img { max-width: 450px; margin: auto; }</style>
