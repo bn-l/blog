@@ -52,7 +52,7 @@ This repo started at **commit a** (where HEAD and <abbr title="AKA master">main<
     fetch = +refs/heads/*:refs/remotes/origin/*
 ```
 
-  
+   
 ### HEAD
 
 Like a [tape head](http://hyperphysics.phy-astr.gsu.edu/hbase/Audio/tape2.html), this is where writes happen.
