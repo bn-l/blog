@@ -9,6 +9,9 @@ cleanDestinationDir = true
 timeZone = "Etc/GMT-10"
 enableEmoji = true
 
+[[menu.main]]
+  name = "Comments & Contact"
+  url = "https://github.com/bn-l/blog/discussions/1"
 
 [taxonomies]
   tag = "tags"
