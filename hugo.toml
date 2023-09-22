@@ -2,3 +2,66 @@ baseURL = 'https://bn-l.com'
 languageCode = 'en-us'
 title = "Ben's notes"
 theme = 'hugo-paper'
+sectionPagesMenu = "main"
+ignoreErrors = ["error-remote-getjson"]
+cleanDestinationDir = true
+# enableGitInfo = true
+timeZone = "Etc/GMT-10"
+enableEmoji = true
+
+
+[taxonomies]
+  tag = "tags"
+  series = "series"
+
+[markup]
+[markup.goldmark]
+  [markup.goldmark.renderer]
+    unsafe = true
+[markup.highlight]
+  noClasses = true
+  style = 'catppuccin-frappe'
+  tabWidth = 2
+
+
+[params]
+
+  mainHeader = "A personal blog"
+  sideLine = "topics: tech (especially obscure problems), bio hacking, product design"
+  mainSections = ["posts"]
+
+  # hugo-paper params:
+  color = 'linen'
+  # twitter = ''
+  github = 'bn-l'
+  # instagram = ''
+  disableHLJS = true
+  # avatar = ''
+  name = 'Ben'
+
+[privacy]
+
+  [privacy.vimeo]
+    disabled = false
+    simple = true
+
+  [privacy.twitter]
+    disabled = false
+    enableDNT = true
+    simple = true
+
+  [privacy.instagram]
+    disabled = false
+    simple = true
+
+  [privacy.youtube]
+    disabled = false
+    privacyEnhanced = true
+
+# [services]
+
+#   [services.instagram]
+#     disableInlineCSS = true
+
+#   [services.twitter]
+#     disableInlineCSS = true

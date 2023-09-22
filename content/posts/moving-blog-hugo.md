@@ -1,7 +1,10 @@
 ---
-title: 'Testing New Blog Setup'
-date: 2023-09-20T11:37:39+10:00
-draft: true
+title: 'Moving Blog to Hugo'
+date: 2023-09-22T08:21:45+10:00
+draft: false
+images: 
+    - ./images/default-cover.png
+slug: moving-blog-hugo
 ---
 
 ### Moving to Hugo
