@@ -1,7 +1,7 @@
 ---
 title: New year resolutions
 description: A number of things I want to do in the new year
-draft: false
+draft: true
 date: 2022-12-20
 slug: "new-year-2023-resolutions"
 ---
