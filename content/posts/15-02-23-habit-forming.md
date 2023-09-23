@@ -1,6 +1,6 @@
 ---
-title: Habits: Discussion of "Psychology of habit" paper
-description: "A summary of the paper 'Psychology of habit' in the Annual Review of Psychology"
+title: Habits
+description: Discussion of the paper 'Psychology of habit'
 draft: false
 date: 2023-02-15
 lastmod: 2023-09-21
