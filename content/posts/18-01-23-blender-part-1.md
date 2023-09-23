@@ -11,7 +11,6 @@ series:
 
 <style>img { max-width: 450px; margin: auto; }</style>
 
-![asda](https://images.pexels.com/photos/1525041/pexels-photo-1525041.jpeg)
 
 ## Intro
 

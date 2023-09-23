@@ -1,5 +1,5 @@
 ---
-title: Explanation of `execute_async_script` in selenium - Non spam post
+title: Explanation of execute_async_script in selenium - Non spam post
 description: The selenium docs are absolutely terrible. And especially on this method on its WebDriver implementation. What is WebDrive? I'll explain it in one sentence.
 draft: false
 date: 2023-08-09

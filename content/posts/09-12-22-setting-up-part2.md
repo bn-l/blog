@@ -3,7 +3,7 @@ title: "Setting up ~~this~~ _a_ blog using metalsmith - Part 2"
 description: "Changing the markdown parser to add extensions: emoji, containers and abbreviations"
 date: 2022-12-08
 lastmod: 2022-12-14
-draft: false
+draft: true
 slug: setting-up-this-blog-using-metalsmith-part-2
 ---
 

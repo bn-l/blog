@@ -3,7 +3,7 @@ title: Setting up ~~this~~ _a_ blog using metalsmith - Part 1
 description: Metalsmith.js is a static pages library. I'm using it to convert markdown files to html. Pretty cool.
 date: 2022-12-03
 lastmod: 2022-12-08
-draft: false
+draft: true
 slug: setting-up-this-blog-using-metalsmith-part-1
 ---
 
