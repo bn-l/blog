@@ -12,7 +12,7 @@ series:
 <style>img { max-width: 450px; margin: auto; }</style>
 
 
-## Intro
+## Intro 
 
 Blender has various manipulation "modes". For example, in "Object Mode" you manipulate the object as a whole—moving it around, rotating it, scaling it. "Edit Mode" is for more fine work where you can adjust individual edges, vertices, etc.
 
