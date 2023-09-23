@@ -1,5 +1,5 @@
 ---
-title: "Habit Forming: The Science and How To"
+title: Habits: Discussion of "Psychology of habit" paper
 description: "A summary of the paper 'Psychology of habit' in the Annual Review of Psychology"
 draft: false
 date: 2023-02-15
@@ -18,6 +18,7 @@ slug: habit-forming-psychology-of-habit
   2. Response
 
     
+
 A 2016 paper "Psychology of habit" [^1] breaks it down into this diagram:
 
 ![image-20230215054841361](images/image-20230215054841361.png)
