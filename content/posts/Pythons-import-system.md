@@ -1,8 +1,8 @@
 ---
 title: 'Relative imports in python'
-description: "Extremely convoluted and a perfect trap for the new to python"
+description: "Extremely convoluted and a perfect trap for the beginner or otherwise"
 date: 2023-10-17T09:16:34+11:00
-draft: true
+draft: false
 # used to set cover photo and open graph photo:
 images: 
     - ./images/default-cover.png
@@ -23,7 +23,7 @@ weight: 2
 
 If you have spent hours trying to fully understand the way python does imports after getting (unhelpful) errors like `ModuleNotFoundError: No module named <your module>` or `ImportError: attempted relative import with no known parent package` and have been banging your head against the truly awful python docs, then look no further.
 
-I'll explain why relative imports don't work when you run a file directly (`python somefile.py`) and how the import system works in general. It's less convoluted than the docs make it out to be and I'll just present the critical facts without the blabbing. Estimated reading time: 15 minutes.
+I'll explain why relative imports don't work when you run a file directly (`python somefile.py`) and how the import system works in general. It's less convoluted than the docs make it out to be. This will be just the critical facts without the blabbing. Estimated reading time: 15 minutes.
 
 ## Module vs Package:
 
