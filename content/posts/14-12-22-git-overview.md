@@ -38,13 +38,13 @@ This repo started at **commit a** (where HEAD and <abbr title="AKA master">main<
   - A node on the git DAG must have a reference to it or else it can be garbage collected / deleted.
   - Nodes cannot be mutated but these "post-its" can be moved around freely. They don't get stored in the history, and they aren't *directly*[^1] transferred between repositories. They act like bookmarks.
 
-## Further Concepts
+## The Rest
 
-### Remotes:
+### Remotes
 
-- Git urls with names
-- Naming allows quick reference. Can simply use an identifier instead of typing: http:… etc
-  - Literally listed in .git/config like this (git's config file is [basically](https://stackoverflow.com/a/68461700/20603697) INI format):
+- Git urls with names (like the word "origin")
+- Matches words to urls
+  - Literally listed in .git/config like this (git's config file is [basically](https://stackoverflow.com/a/68461700/20603697) INI format). This matches the word "origin" to these two properties (the fetch part can be ignored for now):
   
 ```	ini
 [remote "origin"]
@@ -52,7 +52,7 @@ This repo started at **commit a** (where HEAD and <abbr title="AKA master">main<
     fetch = +refs/heads/*:refs/remotes/origin/*
 ```
 
-   
+
 ### HEAD
 
 Like a [tape head](http://hyperphysics.phy-astr.gsu.edu/hbase/Audio/tape2.html), this is where writes happen.
@@ -185,5 +185,4 @@ NOTE!: This, confusingly, does not refer to a "tree" object in the DAG, but to t
 
 
 [^1]: You get or give refs when you get or give a repo. E.g. if you're getting one (like with git clone) you get a set of refs namespaced under the remote name. These will literally be at: /repo-name/.git/refs/remotes/remote-name. 
-
 
