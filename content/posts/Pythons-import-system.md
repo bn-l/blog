@@ -159,7 +159,7 @@ will work (whereas before python 3.3 it wouldn't).
 
 This means you can spread a single package out over many folders. It's like a "virtual module".
 
-You might have been unintentionally using a namespace package if you have a python project folder and you didn't create `__init__.py` files (which can lead to confusing behaviour).
+The relevance to imports is that you might have been unintentionally importing namespace packages if you have a python project folder and you didn't create `__init__.py` files (which can lead to confusing behaviour).
 
 
 
