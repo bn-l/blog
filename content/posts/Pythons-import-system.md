@@ -40,7 +40,7 @@ When you `import`, python will search for the module in the following way:
 
 ### 1. Convert relative imports to absolute 
 
-Relative imports have dots at the start; Absolute imports do not. That's it.  Absolute: `import somepackage`. Relative: `import .sibling`. 
+Relative imports have dots at the start of the path, absolute imports do not. Absolute: `import somepackage`. Relative: `import .sibling`. 
 
 You might have done this before:  
 In `/folder/pyfile.py` you have the line `from siblingfile import somefunc`, and then you ran: `python pyfile.py`, and it worked.
@@ -53,21 +53,21 @@ folder/
 ```
 
 
-This is an absolute import of a module. Python knew where to look because the folder containing `pyfile.py` and `siblingfile.py` is automatically added to the module search paths when you ran `python pyfile.py`.
+You did an absolute import of a module. Python knew where to look because the folder containing `pyfile.py` and `siblingfile.py` was automatically added to the module search paths when you ran `python pyfile.py`.
 
-Python only does absolute imports behind the scenes so relative paths need to be converted to absolute. It will use a variable called `__package__` (more detail further on) to do this. This is less complicated than it sounds: [this is the exact function that does this in python](https://github.com/python/cpython/blob/c1e5343928b4e52cc91251fc8680ec3acc31e7a8/Lib/importlib/_bootstrap.py#L1225) (the `package` parameter comes from the `__package__` variable). 
+Python needs absolute paths behind the scenes so relative import paths need to be converted to absolute. It will use a variable called `__package__` (more detail further on) to do this. [This is the exact function that does this in python](https://github.com/python/cpython/blob/c1e5343928b4e52cc91251fc8680ec3acc31e7a8/Lib/importlib/_bootstrap.py#L1225) (the `package` parameter comes from the `__package__` variable). 
 
 This is probably isn't fully clear at the moment but I invite you to retain your curiosity as I’ll flesh out the explanation further down.
 
 ### 2. Cache check
 
-Python will first look if the module is already imported by checking the already imported module cache[^1]. If it's there, it does nothing.
+After converting the path from relative to absolute (if necessary) python will first look if the module is already imported by checking the already imported module cache[^1]. If it's there, it does nothing.
 
 ### 3. Lookup list of paths
 
-If not in the cache it will use a list of paths added to the start to the absolute import path to find the module. E.g. for `import somepackage.subpackage.somecode` it will check if the folder `C:\Python311\Lib\somepackage\subpackage` exists and whether a folder `somecode\` or `somecode.py` is in it. If not it will keep searching by prepending the paths. It's really that basic.
+If not in the cache it will try to find the module by prepending various paths to the import path to find the module. E.g. for `import somepackage.subpackage.somecode` it will add the path `C:\Python311\Lib\` and check if the folder `C:\Python311\Lib\somepackage\subpackage` exists and whether a folder `somecode\` or a file `somecode.py` is in it. If not it will keep searching by trying other paths. It's really that basic.
 
-This list of paths can be seen if you run this command: `import sys` then `print(sys.path)`[^2]. For me on windows the output is:
+This list of paths it checks can be seen if you run this command: `import sys` then `print(sys.path)`[^2]. For me on windows the output is:
 
 - 'C:\\Python311\\Lib', 
 - 'C:\\Python311', 
@@ -78,7 +78,7 @@ Note the last line above:
 
 - I ran: `python.exe C:\Users\me\Desktop\mypackage\main.py` and when you do this <mark>python adds the current folder</mark> to the lookup path list.
 
-- So: `C:\Users\me\Desktop\mypackage\` is also a location where python will search for absolute imports I specify by prepending that path. All python files and subfolders of this path are now available for import.
+- So: `C:\Users\me\Desktop\mypackage\` was added and all python files and subfolders in that folder are now available for import.
 
 **However if I run a file in a subfolder:**  
 `python.exe C:\Users\me\Desktop\mypackage\subfolder1\module1.py.py` 
@@ -99,7 +99,7 @@ mypackage/
     └── module2.py
 ```
 
-### 5. Execute `__init__.py` files
+### 4. Execute `__init__.py` files
 
 Any `__init__.py` files along the import path and the module being imported will be executed. E.g. `from subpackage.somefile import somefunc` will execute: 
 
@@ -107,6 +107,7 @@ Any `__init__.py` files along the import path and the module being imported will
 
 - `subpackage.py`[^3]
 
+Back to relative imports...
     
 
 ## Where relative imports work
@@ -115,12 +116,12 @@ Any `__init__.py` files along the import path and the module being imported will
 
 - `python somefile.py` (AKA "running directly"[^4])
 
-- `python -m somefile`  (note that "some<u>**file**</u>"—is a file not a directory)
+- `python -m somefile`  (note that "somefile"—is a file not a directory)
 
 **Works**: 
 
 - `python -m somefolder`
-    - As long as the argument after -m[^5] is a folder or a dot path to a file within a folder. E.g. for the folder structure `/somedirectory/somefile.py`: running `python -m somedirectory`[^6] and `python.exe -m somedirectory.somefile` will make relative imports work.
+    - As long as the argument after -m is a folder or a dot path to a file within a folder[^5]. E.g. for the folder structure `/somedirectory/somefile.py`: running `python -m somedirectory`[^6] and `python.exe -m somedirectory.somefile` will make relative imports work.
 - `import somefile` or `import somefolder` 
     - Relative imports also work in `somefile` and `somefolder` when you import them in another package (NB: they have to be findable in the lookup path).  
 
