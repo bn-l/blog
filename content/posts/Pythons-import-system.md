@@ -61,11 +61,11 @@ This is probably isn't fully clear at the moment but I invite you to retain your
 
 ### 2. Cache check
 
-After converting the path from relative to absolute (if necessary) python will first look if the module is already imported by checking the already imported module cache[^1]. If it's there, it does nothing.
+After converting the path from relative to absolute (if necessary) python will check if the module is already imported by looking at the already imported module cache[^1]. If it's there, it does nothing.
 
 ### 3. Lookup list of paths
 
-If not in the cache it will try to find the module by prepending various paths to the import path to find the module. E.g. for `import somepackage.subpackage.somecode` it will add the path `C:\Python311\Lib\` and check if the folder `C:\Python311\Lib\somepackage\subpackage` exists and whether a folder `somecode\` or a file `somecode.py` is in it. If not it will keep searching by trying other paths. It's really that basic.
+If not in the cache it will try to find the module by prepending various paths to the import path. E.g. for `import somepackage.subpackage.somecode` it will add the path `C:\Python311\Lib\` and check if the folder `C:\Python311\Lib\somepackage\subpackage` exists and whether a folder `somecode\` or a file `somecode.py` is in it. If not it will keep searching by trying other paths. It's really that basic.
 
 This list of paths it checks can be seen if you run this command: `import sys` then `print(sys.path)`[^2]. For me on windows the output is:
 
@@ -83,9 +83,9 @@ Note the last line above:
 **However if I run a file in a subfolder:**  
 `python.exe C:\Users\me\Desktop\mypackage\subfolder1\module1.py.py` 
 
--  Then only: `C:\Users\me\Desktop\mypackage\sub1\` is added to the lookup list (and only *its* files and subfolders are searched—apart from the default paths). 
+-  Then only: `C:\Users\me\Desktop\mypackage\subfolder1\` is added to the lookup list (and only *its* files and subfolders are searched—apart from the default paths). 
 
--  **The issue:** In `module1.py` below if I try to import from `module2.py` there will be an error as python only knows about what's in `subfolder1`. 
+**The issue:** In `module1.py` (see below) if I try to import from `module2.py` there will be an error as python only knows about what's in `subfolder1`. 
 
 ```shell
 mypackage/
@@ -121,14 +121,14 @@ Back to relative imports...
 **Works**: 
 
 - `python -m somefolder`
-    - As long as the argument after -m is a folder or a dot path to a file within a folder[^5] (E.g. for the folder structure `/somedirectory/somefile.py`: running `python -m somedirectory`[^6] and `python.exe -m somedirectory.somefile`).
+    - As long as the argument after -m is a folder or a dot path to a file within a folder[^5] (E.g. for the folder structure `/somedirectory/somefile.py`: running `python -m somedirectory`[^6] will work and so will `python.exe -m somedirectory.somefile`).
 - `import somefile` or `import somefolder` 
     - Relative imports also work in `somefile` and `somefolder` when you import them in another package (NB: they have to be findable in the lookup path).  
 
 
 In more detail, a relative import will work if the module's `__package__` variable is not `None`. Python uses this variable to to construct an absolute path from a relative one. There's no real technical reason why relative imports can't work everywhere but I suppose a lot of code would have to be changed. It's a pretty basic check. The exact code for it is [here](https://github.com/python/cpython/blob/78e4a6de48749f4f76987ca85abb0e18f586f9c4/Lib/importlib/_bootstrap.py#L1288C26-L1288C26). Python looks at the import string in the file and counts the number of dots. E.g. It literally looks at `from ..somepackage import blahblah` and counts the dots at the beginning (two) and calls this the import "level". If the "level" is > 0, and the `__package__` variable is `None` it will throw this error ([link](https://github.com/python/cpython/blob/78e4a6de48749f4f76987ca85abb0e18f586f9c4/Lib/importlib/_bootstrap.py#L1289) to exact location in code):  `attempted relative import with no known parent package`. For each dot "level" you need a certain number of packages in `__package__` separated by dots. E.g. if `__package__` = `folder.somepackage ` then the above import will work because python literally runs  `len(__package__.split("."))` and then compares that to the number of dots. I'm not even kidding.
 
-When running a file directly: `python.exe somefile.py` or: `python.exe -m somefile`, `__package__` is set to `None`. And that's it. That's why relative imports create an error.
+When running a file directly: `python.exe somefile.py` or: `python.exe -m somefile`, `__package__` is set to `None`. And that's it. That's why relative imports create an error. Check out the source code if you don't believe me.
 
 
 
@@ -160,7 +160,7 @@ will work (whereas before python 3.3 it wouldn't).
 
 This means you can spread a single package out over many folders. It's like a "virtual module".
 
-You might have been unintentionally using a namespace package if you have a python project folder and you didn't create `__init__.py` files. 
+You might have been unintentionally using a namespace package if you have a python project folder and you didn't create `__init__.py` files (which can lead to confusing behaviour).
 
 
 
@@ -206,5 +206,5 @@ You might have been unintentionally using a namespace package if you have a pyth
 [^4]: Running a file directly like this in python sets it manually as the the "`__main__`" file. The "main" file has its `__name__` variable set to `__main__` by python interpretor (see point above also). The idea being to have an "entry point" of execution into a python program. From the [docs](https://docs.python.org/3.12/reference/toplevel_components.html#programs:~:text=The%20latter%20is%20used%20to%20provide%20the%20local%20and%20global%20namespace%20for%20execution%20of%20the%20complete%20program.): The file designated as `__main__` "provides the local and global namespace for execution of the complete program"
 [^5]: When running using the "-m switch" python will run the code / folder, etc with a program called "[runpy](https://docs.python.org/3.12/library/runpy.html)"
 
-[^6]: Need to have a `__main__.py` [file](https://docs.python.org/3/library/__main__.html#main-py-in-python-packages) in the folder—which will be run and considered the main file automatically (see footnote 7).
+[^6]: Need to have a `__main__.py` [file](https://docs.python.org/3/library/__main__.html#main-py-in-python-packages) in the folder—which will be run and considered the main file automatically (see footnote 4).
 
