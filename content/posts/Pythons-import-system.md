@@ -116,12 +116,12 @@ Back to relative imports...
 
 - `python somefile.py` (AKA "running directly"[^4])
 
-- `python -m somefile`  (note that "somefile"—is a file not a directory)
+- `python -m somefile`  (where "somefile" is a file not a folder)
 
 **Works**: 
 
 - `python -m somefolder`
-    - As long as the argument after -m is a folder or a dot path to a file within a folder[^5]. E.g. for the folder structure `/somedirectory/somefile.py`: running `python -m somedirectory`[^6] and `python.exe -m somedirectory.somefile` will make relative imports work.
+    - As long as the argument after -m is a folder or a dot path to a file within a folder[^5] (E.g. for the folder structure `/somedirectory/somefile.py`: running `python -m somedirectory`[^6] and `python.exe -m somedirectory.somefile`).
 - `import somefile` or `import somefolder` 
     - Relative imports also work in `somefile` and `somefolder` when you import them in another package (NB: they have to be findable in the lookup path).  
 
