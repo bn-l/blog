@@ -166,37 +166,37 @@ You might have been unintentionally using a namespace package if you have a pyth
 
 ## References
 
-*5. The import system*. (n.d.). Python Documentation. Retrieved October 17, 2023, from https://docs.python.org/3/reference/import.html
+*5. The import system*. (2023). Python Documentation. Retrieved October 17, 2023, from https://docs.python.org/3/reference/import.html
 
-*6. Modules*. (n.d.). Python Documentation. Retrieved October 17, 2023, from https://docs.python.org/3/tutorial/modules.html
+*6. Modules*. (2023). Python Documentation. Retrieved October 17, 2023, from https://docs.python.org/3/tutorial/modules.html
 
-*9. Top-level components*. (n.d.). Python Documentation. Retrieved October 17, 2023, from https://docs.python.org/3.12/reference/toplevel_components.html
+*9. Top-level components*. (2023). Python Documentation. Retrieved October 17, 2023, from https://docs.python.org/3.12/reference/toplevel_components.html
 
-*Cpython importlib/_bootstrap.py source code*. (n.d.). Retrieved October 17, 2023, from https://github.com/python/cpython/blob/3.12/Lib/importlib/_bootstrap.py
+*Cpython importlib/_bootstrap.py source code*. (2023, August 29). Retrieved October 17, 2023, from https://github.com/python/cpython/blob/3.12/Lib/importlib/_bootstrap.py
 
-*Cpython importlib/__init__.py source code*. (n.d.). Retrieved October 17, 2023, from https://github.com/python/cpython/blob/3.12/Lib/importlib/__init__.py
+*Cpython importlib/__init__.py source code*. (2023, May 3). Retrieved October 17, 2023, from https://github.com/python/cpython/blob/3.12/Lib/importlib/__init__.py
 
-*Glossary*. (n.d.). Python Documentation. Retrieved October 17, 2023, from https://docs.python.org/3/glossary.html
+*Glossary*. (2023). Python Documentation. Retrieved October 17, 2023, from https://docs.python.org/3/glossary.html
 
-*__main__ — Top-level code environment*. (n.d.). Python Documentation. Retrieved October 17, 2023, from https://docs.python.org/3/library/__main__.html
+*__main__ — Top-level code environment*. (2023). Python Documentation. Retrieved October 17, 2023, from https://docs.python.org/3/library/__main__.html
 
-*Packaging namespace packages — Python Packaging User Guide*. (n.d.). Python.org. Retrieved October 17, 2023, from https://packaging.python.org/en/latest/guides/packaging-namespace-packages/
+*Packaging namespace packages — Python Packaging User Guide*. (2023, June 16). Python.org. Retrieved October 17, 2023, from https://packaging.python.org/en/latest/guides/packaging-namespace-packages/
 
-*PEP 328 – imports: Multi-line and absolute/relative*. (n.d.). Python.org. Retrieved October 17, 2023, from https://peps.python.org/pep-0328/
+*PEP 328 – imports: Multi-line and absolute/relative*. (2003, December 21). Python.org. Retrieved October 17, 2023, from https://peps.python.org/pep-0328/
 
-*PEP 338 – Executing modules as scripts*. (n.d.). Python.org. Retrieved October 17, 2023, from https://peps.python.org/pep-0338/
+*PEP 338 – Executing modules as scripts*. (2004, October 16). Python.org. Retrieved October 17, 2023, from https://peps.python.org/pep-0338/
 
-*PEP 366 – Main module explicit relative imports*. (n.d.). Python.org. Retrieved October 17, 2023, from https://peps.python.org/pep-0366/
+*PEP 366 – Main module explicit relative imports*. (2007, May 01). Python.org. Retrieved October 17, 2023, from https://peps.python.org/pep-0366/
 
-*PEP 420 – implicit namespace packages*. (n.d.). Python.org. Retrieved October 17, 2023, from https://peps.python.org/pep-0420/
+*PEP 420 – implicit namespace packages*. (2012, April 19). Python.org. Retrieved October 17, 2023, from https://peps.python.org/pep-0420/
 
-*runpy — Locating and executing Python modules*. (n.d.). Python Documentation. Retrieved October 17, 2023, from https://docs.python.org/3/library/runpy.html
+*runpy — Locating and executing Python modules*. (2023, August 7). Python Documentation. Retrieved October 17, 2023, from https://docs.python.org/3/library/runpy.html
 
-*sys — System-specific parameters and functions*. (n.d.). Python Documentation. Retrieved October 17, 2023, from https://docs.python.org/3/library/sys.html
+*sys — System-specific parameters and functions*. (2023). Python Documentation. Retrieved October 17, 2023, from https://docs.python.org/3/library/sys.html
 
-*The initialization of the sys.path module search path*. (n.d.). Python Documentation. Retrieved October 17, 2023, from https://docs.python.org/3/library/sys_path_init.html
+*The initialization of the sys.path module search path*. (2023). Python Documentation. Retrieved October 17, 2023, from https://docs.python.org/3/library/sys_path_init.html
 
-*What is the purpose of the -m switch?* (n.d.). Stack Overflow. Retrieved October 17, 2023, from https://stackoverflow.com/questions/7610001/what-is-the-purpose-of-the-m-switch
+*What is the purpose of the -m switch?* (2011, September 30). Stack Overflow. Retrieved October 17, 2023, from https://stackoverflow.com/questions/7610001/what-is-the-purpose-of-the-m-switch
 
 
 
