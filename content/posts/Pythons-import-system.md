@@ -150,7 +150,7 @@ container2/
     └── niceprint.py
 ```
 
-Note that `spreadoutpackage` has the **same name** in two different folders and that there are **no `__init__.py`** files. Succintly: **if** `container1/` and `container2/` are in the [lookup path list](#4-lookup-list), then these two calls from a python file: 
+Note that `spreadoutpackage` has the **same name** in two different folders and that there are **no `__init__.py`** files. Succinctly: **if** `container1/` and `container2/` are in the [lookup path list](#4-lookup-list), then these two calls from a python file: 
 
 - `from spreadoutpackage.lowercase import CaseLowerer`, and:
 -  `from spreadoutpackage.niceprint import print_this`, 
@@ -159,7 +159,7 @@ will work (whereas before python 3.3 it wouldn't).
 
 This means you can spread a single package out over many folders. It's like a "virtual module".
 
-The relevance to imports is that you might have been unintentionally importing namespace packages if you have a python project folder and you didn't create `__init__.py` files (which can lead to confusing behaviour).
+The relevance to imports is that you might have been unintentionally importing namespace packages if you have a python project folder and you didn't create `__init__.py` files (which can lead to confusing behavior).
 
 
 
