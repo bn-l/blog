@@ -83,6 +83,42 @@ Various color customizations. Including changes to decorators. I use a light the
 ```
 
 
+In `.vscode/tasks.js` this will run the current file as a module, show any output and then close the panel on key press. It also hides any annoying boilerplate messages (note: you will need the plugin mentioned [here](/posts/debugging-python-in-vscode)):
+
+```json
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "run python",
+            "type": "shell",
+            "command": "python.exe -m '${workspaceFolderBasename}.${command:extension.commandvariable.file.relativeFileDotsNoExtension}'",
+            "options": {
+                "cwd": "${command:extension.commandvariable.workspace.folder1Up}"
+            },
+            "presentation": {
+                "reveal": "never",
+                "focus": true,
+                "panel": "shared",
+                "echo": false,
+                "clear": true,
+                "showReuseMessage": false,
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "close terminal panel",
+            "command": "${command:workbench.action.closePanel}"
+        },
+        {
+            "label": "run python then close panel",
+            "dependsOrder": "sequence",
+            "dependsOn": ["run python", "close terminal panel"]
+        }
+    ],
+}
+```
+
 
 
 
