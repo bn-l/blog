@@ -12,12 +12,17 @@ keywords:
     - relative
     - imports
 # lastmod: 
-series: 
+series:
+    - python-imports
     - python
     - python-internals
-# tags: 
 weight: 2
 ---
+
+
+
+<span class="update">Check out the follow on [post](/posts/debugging-python-in-vscode) on the best way to debug in vscode considering the way the imports system works</span>
+
 
 
 
