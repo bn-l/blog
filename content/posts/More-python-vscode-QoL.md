@@ -83,7 +83,7 @@ Various color customizations. Including changes to decorators. I use a light the
 ```
 
 
-In `.vscode/tasks.js` this will run the current file as a module, show any output and then close the panel on key press. It also hides any annoying boilerplate messages (note: you will need the plugin mentioned [here](/posts/debugging-python-in-vscode)):
+In `.vscode/tasks.js` this will run the current file as a module within the correct environment, show any output and then close the **panel** on key press (and not just the separate terminal the task runs in--this is extremely confusing). It also hides any annoying boilerplate messages (note: you will need the plugin mentioned [here](/posts/debugging-python-in-vscode)):
 
 ```json
 {
@@ -92,16 +92,18 @@ In `.vscode/tasks.js` this will run the current file as a module, show any outpu
         {
             "label": "run python",
             "type": "shell",
-            "command": "python.exe -m '${workspaceFolderBasename}.${command:extension.commandvariable.file.relativeFileDotsNoExtension}'",
+            "command": "${command:python.interpreterPath}",
+            "args": ["-m", "${workspaceFolderBasename}.${command:extension.commandvariable.file.relativeFileDotsNoExtension}"],
             "options": {
                 "cwd": "${command:extension.commandvariable.workspace.folder1Up}"
             },
             "presentation": {
-                "reveal": "never",
+                "reveal": "always",
                 "focus": true,
                 "panel": "shared",
                 "echo": false,
                 "clear": true,
+                "close": false,
                 "showReuseMessage": false,
             },
             "problemMatcher": []
