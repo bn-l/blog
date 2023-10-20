@@ -119,6 +119,21 @@ In `.vscode/tasks.js` this will run the current file as a module, show any outpu
 }
 ```
 
+In `keybindings.json` assign keyboard shortcuts to a command and to a task (using the args property). Here I've assigned the above run and close task:
+
+```json
+    {
+        "key": "ctrl+shift+alt+enter",
+        "command": "workbench.action.debug.run",
+        "when": "debuggersAvailable && debugState != 'initializing'"
+    },
+    {
+        "key": "ctrl+alt+enter",
+        "command": "workbench.action.tasks.runTask",
+        "args": "run python then close panel",
+        "when": "editorTextFocus && !notebookEditorFocused && editorLangId == 'python'"
+    },
+```
 
 
 
