@@ -1,5 +1,5 @@
 ---
-title: Beginner's blender tutorial (Retopology, UV Unwrapping) - Part 2
+title: Blender ULTRA quickstart - Part 2
 description: Retopology, texture baking, etc. This information is useful for creating models for games.
 draft: false
 date: 2023-01-25

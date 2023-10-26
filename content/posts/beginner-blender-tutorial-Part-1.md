@@ -1,5 +1,5 @@
 ---
-title: Beginner's blender tutorial (sculpture) - Part 1
+title: Blender ULTRA quickstart
 description: A quick start to sculpting in blender. Assumes you are an absolute beginner.
 draft: false
 date: 2023-01-18
