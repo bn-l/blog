@@ -2,6 +2,7 @@
 title: "Git Commands (reference)"
 description: "Specific git command reference"
 date: 2022-12-15
+lastmod: 2023-10-26
 draft: false
 slug: git-commands
 weight: 5
@@ -68,3 +69,8 @@ git reset --option <target>
 - Like git checkout except it moves the HEAD *as well as* the current branch pointer—leaving the node(s) orphaned
 - "git reset" defaults to "git reset --mixed HEAD"
 - Will reset back to specified commit (or where HEAD is pointed to), removing commits inbetween as well.
+
+```sh
+git rev-parse --show-toplevel
+```
+From [this](https://stackoverflow.com/a/12293994/2083958) stackoverflow post. Will show the location of the git repo when in a subdirectory.
