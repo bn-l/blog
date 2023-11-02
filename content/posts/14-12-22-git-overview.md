@@ -3,7 +3,7 @@ title: "Clear overview of git"
 description: "No verbiage, no nonsense, not written for SEO. Immediately actionable. Assumes CS knowledge and only some git."
 date: 2022-12-14
 draft: false
-toc: true
+toc: false
 slug: clear-overview-git
 weight: 2
 ---
