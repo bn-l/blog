@@ -100,7 +100,7 @@ An alternative proposal is to leave this out and just put "m" in front of your j
 
 
 
-Coming back to node / ts / js after a while away has made me remember why I stopped using the ecosystem. The time you can waste on nailing down issues is enormous. I came back because like it or not, it's necessary for the web but just getting setup has been really frictional.
+Coming back to node / ts / js after a while away has made me remember why I stopped using the ecosystem. The time you can waste on nailing down issues is enormous. I came back because like it or not, it's necessary for the web but just getting setup has been really frictional. There is hope though. [Bun](https://bun.sh/docs/runtime/modules) promises to be faster and have "a consistent and predictable module resolution system that just works." It's still early days and it's a beta stage library using zig, an insanely cool [but also beta stage language](https://ziglang.org/), which it uses to interface with a separate project in another language for its javascript engine (webkit). But even with those caveats, it has 65k stars on [github](https://github.com/oven-sh/bun) which to me says that people are absolutely dying to get away from node.
 
 
 ## Final Setup
