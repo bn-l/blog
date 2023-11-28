@@ -104,7 +104,7 @@ Coming back to node / ts / js after a while away has made me remember why I stop
 
 
 ## Final Setup
-My setup is this (went the `.mts` route):
+My setup is this (went the [`.mts` route](https://nodejs.org/docs/latest-v18.x/api/packages.html#packagejson-and-file-extensions)):
 
 `./tsconfig.json`
 
