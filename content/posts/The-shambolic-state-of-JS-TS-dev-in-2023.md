@@ -94,9 +94,9 @@ To fix these you will be advised on stackoverflow to add this to your "package.j
 "type": "module"
 ```
 
-The problem with this though is that node will treat all files in the project as if they are es modules. It is crucial to know that is is a package-wide setting and it applies to [all the folders in node_modules.](https://nodejs.org/docs/latest-v18.x/api/packages.html#packagejson-and-file-extensions)[^3] So any dependencies you have that use commonJS imports (i.e. `require`) will now break. 
+The problem with this though is that node will treat all files in the project as if they are es modules. It is crucial to know that is a package-wide setting and it applies to [all the folders in node_modules.](https://nodejs.org/docs/latest-v18.x/api/packages.html#packagejson-and-file-extensions)[^3] So any dependencies you have that use commonJS imports (i.e. `require`) will now break. 
 
-An alternative proposal is to leave this out and just put "m" in front of it ([I'm not kidding](https://nodejs.org/docs/latest-v18.x/api/packages.html#packagejson-and-file-extensions)).
+An alternative proposal is to leave this out and just put "m" in front of your js / ts file extensions ([I'm not kidding](https://nodejs.org/docs/latest-v18.x/api/packages.html#packagejson-and-file-extensions)).
 
 
 
