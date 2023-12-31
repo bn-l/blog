@@ -13,12 +13,16 @@ keywords:
     - debugging
     - ts-node
     - tsx 
-# lastmod: 
+lastmod: 2023-12-31T21:00:30+11:00
 series:
     - typescript
     - vscode
     - node
 ---
+
+
+
+<span class="update">Update: Follow the instructions at this link for a definitive answer and example setup, no need to look further: [This](https://gist.github.com/sindresorhus/a39789f98801d908bbc7ff3ecc99d99c) gist by [sindresorhus](https://gist.github.com/sindresorhus) explains how to setup a typescript project in node using ES Module imports and (in the comments) why making your node package an ES module is the best default way.  [Includes](https://github.com/sindresorhus/got/blob/5f278d74125608b7abe75941cb6a71e21e0fb892/tsconfig.json#L17-L21) an example `tsconfig.json`. If you're using Jest there's a good link there.</span>
 
 
 
@@ -100,7 +104,7 @@ An alternative proposal is to leave this out and just put "m" in front of your j
 
 
 
-Coming back to node / ts / js after a while away has made me remember why I stopped using the ecosystem. The time you can waste on nailing down issues is enormous. I came back because like it or not it's necessary for the web but just getting setup has been really frictional. There is hope in the future. [Bun](https://bun.sh/docs/runtime/modules) promises to be faster and have "a consistent and predictable module resolution system that just works." It's still early days and it's a beta stage library using zig, an insanely cool [but also beta stage language](https://ziglang.org/), which it uses to interface with a separate project in another language for its javascript engine (webkit). But even with those caveats, it has 65k stars on [github](https://github.com/oven-sh/bun) which to me says that people are absolutely dying to get away from node.
+Coming back to node / ts / js after a while away has made me remember why I stopped using the ecosystem. The time you can waste on nailing down issues is enormous. I came back because like it or not it's necessary for the web but just getting setup has been really frictional. There is hope in the future. [Bun](https://bun.sh/docs/runtime/modules) promises to be faster and have "a consistent and predictable module resolution system that just works." It's still early days and it's a beta stage library using zig, an insanely cool [but also beta stage language](https://ziglang.org/), which it uses to interface with a separate project in another language for its javascript engine (webkit). But even with those caveats, it has 65k stars on [github](https://github.com/oven-sh/bun) which to me says that people are absolutely dying to get away from node.
 
 
 ## Final Setup
@@ -215,6 +219,12 @@ And my `./package.json`:
     }
 }
 ```
+
+
+
+**PS:** 
+
+Unlike with esm modules, to import a module in node you need to specify the file extension. Ok. However, if you specify .mts or .ts you will run into an issue where the compiling software will need to convert the import statement to .mjs or .js because everything is compiled to javascript and the reference to the mts or ts file will no longer exist. This stackoverflow [comment](https://stackoverflow.com/a/75583110/2083958) explains the situation well and links to the github issue.
 
 
 
