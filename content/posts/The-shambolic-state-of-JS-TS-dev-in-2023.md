@@ -22,7 +22,7 @@ series:
 
 
 
-<span class="update">Update: Follow the instructions at this link for a definitive answer and example setup, no need to look further: [This](https://gist.github.com/sindresorhus/a39789f98801d908bbc7ff3ecc99d99c) gist by [sindresorhus](https://gist.github.com/sindresorhus) explains how to setup a typescript project in node using ES Module imports and (in the comments) why making your node package an ES module is the best default way.  [Includes](https://github.com/sindresorhus/got/blob/5f278d74125608b7abe75941cb6a71e21e0fb892/tsconfig.json#L17-L21) an example `tsconfig.json`. If you're using Jest there's a good link there.</span>
+<span class="update">**Update**: Follow the instructions at this link for a definitive answer and example setup, no need to look further: [This](https://gist.github.com/sindresorhus/a39789f98801d908bbc7ff3ecc99d99c) gist by [sindresorhus](https://gist.github.com/sindresorhus) explains how to setup a typescript project in node using ES Module imports and (in the comments) why making your node package an ES module is the best default way.  [Includes](https://github.com/sindresorhus/got/blob/5f278d74125608b7abe75941cb6a71e21e0fb892/tsconfig.json#L17-L21) an example `tsconfig.json`. If you're using Jest there's a good link there.</span>
 
 
 
