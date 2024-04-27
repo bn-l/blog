@@ -1,8 +1,8 @@
 ---
-title: 'CSS Variables to Change Styles Using React Props'
+title: 'Use CSS Variables to style react components on demand'
 date: 2024-04-14T16:40:14+10:00
 draft: false
-description: Creating modular styled components without css-in-js.
+description: No css-in-js needed, no libraries, locally scoped. Perfect for creating tree-shakeable component libraries.
 # used to set cover photo and open graph photo:
 images: 
     - ./images/default-cover.png
@@ -25,9 +25,9 @@ tags:
 
 
 
-Without any adding any dependencies or going through poorly written CSS framework documentaion, you can connect react props to raw css at runtime with nothing but css variables (aka "[custom properties](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties)"). If you add CSS modules on top you don't have to worry about affecting the global scope so **components created in this way can be truly modular and transferrable**. I use this with [vite](https://vitejs.dev/). 
+Without any adding any dependencies you can connect react props to raw css at runtime with nothing but css variables (aka "[custom properties](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties)"). If you add CSS modules on top you don't have to worry about affecting the global scope so **components created in this way can be truly modular and transferrable**. I use this with [vite](https://vitejs.dev/). 
 
-CSS variables:
+A quick rehash on how CSS variables are scoped:
 
 ```css
 /* Scoped globally */
@@ -40,6 +40,10 @@ CSS variables:
     --pastel-green: #A5FF8A;
 }
 ```
+
+----
+
+
 
 <mark>The idea is that you lift up all the style variables to a main container class</mark> for the component. So instead of this:
 
@@ -71,7 +75,7 @@ You do this:
 
 
 
-Then in your component (vite [comes with](https://vitejs.dev/guide/features.html#css-modules) [css modules](https://github.com/css-modules/css-modules)):
+Then in your component (vite [doesn't require](https://vitejs.dev/guide/features.html#css-modules) configuring postcss to get [css modules](https://github.com/css-modules/css-modules)):
 
 ```tsx
 import css from "./someCss.module.css";
@@ -100,11 +104,14 @@ export default function SomeComponent({mainColor, secondaryColor}: SomePromps) {
 }
 ```
 
+Now changing the props will affect the css directly through the variables which will update the element's style on the page. Adding a dependency do this is unnecesary imo.
 
+----
 
-**Tip**
+**Tip 1**
 
-To reduce the number of individual color props, and to validate the arguments the end user gives, I use  the very small and 0 ext. dep. module: [colord](https://github.com/omgovich/colord) to lighten, darken, contrast, and hue rotate a couple of colors to produce more. It can even produce a pallete / collection of harmonious colors.
+To reduce the number of individual color props, and to validate the arguments the end user gives, I use  the very small and 0 ext. dep. module: [colord](https://github.com/omgovich/colord) to lighten, darken, contrast, and hue rotate a couple of colors to produce more. It can even produce a pallete / collection of harmonious colors from a single argument.
 
+**Tip 2**
 
-
+See this post to create a component library using vite: https://dev.to/receter/how-to-create-a-react-component-library-using-vites-library-mode-4lma

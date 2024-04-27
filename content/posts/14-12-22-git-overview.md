@@ -8,6 +8,10 @@ slug: clear-overview-git
 weight: 2
 ---
 
+
+
+<span class="info"> Tip: Before reading, open the .git folder in one of your repositories and have a look at the files. </span>
+
 ## Intro
 
 A git repo [under the hood](https://archive.ph/wip/YX2Ic) is a directed acyclic graph ([DAG](https://en.wikipedia.org/wiki/Directed_acyclic_graph)):
@@ -60,9 +64,9 @@ Like a [tape head](http://hyperphysics.phy-astr.gsu.edu/hbase/Audio/tape2.html),
 ### Branching
 
 - Branches are like post-it notes stuck on the **end** (always on the end) of a series of commits
-- When HEAD is pointing to a branch (e.g. "main") it means a file called HEAD contains single line like "ref: refs/heads/main". When pointing to a commit it will contain the SHA1 of the commit.
+- When HEAD is pointing to a branch (e.g. "main") it means a file named "HEAD" (check it out in the .git folder) contains single line: `ref: refs/heads/main`. Literaly that is how git maintains its state. Or when you've checked out a specific commit and the head is now pointing to it, this file will contain the SHA1 of the commit. Literally that's it.
 - **Committing to a branch**:
-  - Here HEAD is pointing to a branch called main which is pointing to commit a:
+  - Here HEAD is pointing to a branch called main. Main is pointing to "commit a":
   
 ``` mermaid
 flowchart TB
@@ -70,7 +74,7 @@ HEAD-.->main-.->1[commit a]
 style HEAD fill:#feff9c
     style main fill:#feff9c
 ```
-- The result of a commit called "commit b":
+- Now if we do another commit. This is the result:
   
 ```mermaid
     flowchart TB
@@ -151,11 +155,19 @@ style HEAD fill:#feff9c
 ([location](https://git-scm.com/book/en/v2/Git-Tools-Revision-Selection) in the git manual)
 
 ```shell
-git show HEAD^ #the parent of HEAD. 
+git show HEAD~
 ```
+The tilde navigates back in the DAG. Commits might have a two parents though so how does it know which path to chose as it's going back? By default tilde chooses the first parent.
+
 ```shell
-git show HEAD~ #the parent of HEAD
+git show HEAD^
 ```
+Caret is the parent selector.
+
+Each single chacter or character number combo refers to a new position and an additional one navigates from that. So HEAD~1^2 means: "Go up one (using the first parent as default). From that point go to the second parent."
+
+It's not clear to me where this can be used where it is *better* than just using direct references to commits. 
+
 ```shell
 git show HEAD~3 #the third ancestor of head
 ```

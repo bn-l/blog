@@ -63,9 +63,12 @@ Restores unstaged files in the working directory from the index.
 git reset --option <target>
 ```
 - From [the manual](https://git-scm.com/book/en/v2/Git-Tools-Advanced-Merging#_undoing_merges), reset --hard usually goes through three steps:
-    1. Move the branch HEAD points to.
+    1. Move the HEAD *and* the branch HEAD points to to another reference.
+        - `reset --soft` (as `—option` stops at this point) 
     2. Make the [index](/posts/clear-overview-git/#the-three-trees) look like HEAD.
+        - `reset --mixed` (as `—option` stops at this point) 
     3. Make the [working directory](/posts/clear-overview-git/#the-three-trees) look like the index.
+        - `reset --hard` (as `—option`) 
 - Like git checkout except it moves the HEAD *as well as* the current branch pointer—leaving the node(s) orphaned
 - "git reset" defaults to "git reset --mixed HEAD"
 - Will reset back to specified commit (or where HEAD is pointed to), removing commits inbetween as well.
