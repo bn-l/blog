@@ -5,7 +5,6 @@ date: 2022-12-15
 lastmod: 2023-10-26
 draft: false
 slug: git-commands
-weight: 5
 ---
 
 Note: See [previous](/posts/clear-overview-git) post

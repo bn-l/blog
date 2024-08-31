@@ -1,5 +1,5 @@
 ---
-title: "Clear overview of git"
+title: "Git under the hood"
 description: "No verbiage, no nonsense, not written for SEO. Immediately actionable. Assumes CS knowledge and only some git."
 date: 2022-12-14
 draft: false

@@ -16,7 +16,6 @@ series:
     - python-imports
     - python
     - python-internals
-weight: 2
 ---
 
 

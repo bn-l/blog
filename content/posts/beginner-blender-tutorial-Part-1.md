@@ -4,7 +4,6 @@ description: A quick start to sculpting in blender. Assumes you are an absolute 
 draft: false
 date: 2023-01-18
 slug: "beginner-blender-tutorial-sculpture-part-1"
-weight: 6
 series: 
     - blender-tutes
 ---
