@@ -1,7 +1,7 @@
 ---
 title: "Git under the hood"
 description: "No verbiage, no nonsense, not written for SEO. Immediately actionable. Assumes CS knowledge and only some git."
-date: 2022-12-14
+date: 2024-12-14
 draft: false
 toc: false
 slug: clear-overview-git
@@ -189,7 +189,7 @@ NOTE!: This, confusingly, does not refer to a "tree" object in the DAG, but to t
 
 
 
-## References
+## Read more
 
 - [Git for Computer Scientists](https://eagain.net/articles/git-for-computer-scientists/) ([a](https://archive.ph/YX2Ic))
 - [Stack Overflow: What does GIT PUSH do exactly?](https://stackoverflow.com/a/26005964/20603697) ([a](https://archive.ph/6AZdA))
